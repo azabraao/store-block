@@ -1,16 +1,31 @@
-import React from 'react'
+import React from "react";
 
-interface CountdownProps {}
-
-const Countdown: StorefrontFunctionComponent<CountdownProps> = ({}) => {
-  return <div />
+interface CountdownProps {
+  targetDate: string;
 }
+
+const Countdown: StorefrontFunctionComponent<CountdownProps> = ({
+  targetDate,
+}) => {
+  return (
+    <div>
+      <h1>Countdown: {targetDate}</h1>
+    </div>
+  );
+};
 
 Countdown.schema = {
-  title: 'editor.countdown.title',
-  description: 'editor.countdown.description',
-  type: 'object',
-  properties: {},
-}
+  title: "editor.countdown.title",
+  description: "editor.countdown.description",
+  type: "object",
+  properties: {
+    targetDate: {
+      title: "Final date",
+      description: "Final date used in the countdown",
+      type: "string",
+      default: null,
+    },
+  },
+};
 
-export default Countdown
+export default Countdown;
